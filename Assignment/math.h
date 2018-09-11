@@ -1,29 +1,51 @@
 /*
  * math.h
  *
- *  Created on: Aug 22, 2017
- * 	Last Edited: Sept 7, 2018
- *      Author: Russell Trafford
+ *  Created on: Sept 10, 2018
+ * 	Last Edited: Sept 10, 2018
+ *      Author: Scott Gordon
  */
 
-/* Your assignment is to take the math function and implement at least the following functions:
- * + Add (num1 + num2)
- * - Subtract (num1 - num2)
- * * Multiply (num1 * num2)
- * / Divide (num1 / num2)
- * % Modulus (num1 % num2)
- * < Left Shift (num1 << num2)
- * > Right Shift (num1 >> num2)
- * & Bitwise AND (num1 & num2)
- * | Bitwise OR (num1 | num2)
- * ^ Bitwise XOR (num1 ^ num2)
- * ~ Bitwise Inverse (~num1) for this operation, num1 and num2 are still needed
-*/
+#include <stdio.h>
+#include <math.h>
 
-#ifndef MATH_H_
-#define MATH_H_
+int math(int a, int b, char c);
 
-//Part of your documentation should be listing the valid inputs and outputs for the functions you create.
-int math(int num1, int num2, char Operator);
 
-#endif /* MATH_H_ */
+int main() {
+    int num1 =8;
+    int num2 =4;
+    char operator = '/';
+    printf("%d", math(num1, num2, operator)); //call the math method 
+
+    return 0;
+}
+
+int math(int a, int b, char operator)
+{
+    int ans;
+    if (operator =='+'){ //add operation
+        ans = a + b;
+    } else if (operator == '-') { //subtraction operation
+        ans = a - b;
+    } else if (operator == '*') { //multiplication operation
+        ans = a * b;
+    } else if (operator == '/') { //division operation
+        ans = a / b;
+    } else if (operator == '%') { //modulus operation
+        ans = a % b;
+    } else if (operator == '<') { //shift left operation
+        ans = a << b;
+    } else if (operator == '>') { //shift right operation
+        ans = a >> b;
+    } else if (operator == '&') { //and operation
+        ans = a & b;
+    } else if (operator == '|') { //or operation
+        ans = a | b;
+    } else if (operator == '^') { //xor operation
+        ans = a ^ b;
+    } else if (operator == '~') { //negation operation
+        ans = ~a;
+    }
+    return ans;
+}
